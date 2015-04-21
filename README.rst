@@ -21,7 +21,7 @@ or as leonardo bundle
 
     pip install django-leonardo["sentry"]
 
-Add ``leonardo_module_sentry`` into APPS list, in the ``local_settings.py``::
+Add ``leonardo_module_sentry`` to APPS list, in the ``local_settings.py``::
 
     APPS = [
     	...
