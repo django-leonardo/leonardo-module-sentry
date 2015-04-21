@@ -6,7 +6,7 @@ Leonardo Sentry Module
 Provide end-user friendly 500 Error handler for Leonardo Sites
 
 .. contents::
-    :local
+    :local:
 
 Installation
 ------------
@@ -20,6 +20,14 @@ or as leonardo bundle
 .. code-block:: bash
 
     pip install django-leonardo["sentry"]
+
+Add ``leonardo_module_sentry`` into APPS list, in the ``local_settings.py``::
+
+    APPS = [
+    	...
+        'leonardo_module_sentry'
+    	...
+    ]
 
 Load new template to db
 
