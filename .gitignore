@@ -9,6 +9,9 @@ docs/build/*
 # C extensions
 *.so
 
+AUTHORS
+ChangeLog
+
 # Distribution / packaging
 .Python
 env/
