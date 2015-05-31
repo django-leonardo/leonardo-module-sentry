@@ -3,7 +3,7 @@ RAVEN_CONFIG = {
     'dsn': 'http://public:secret@example.com/1',
 }
 
-ERROR_HANDLER_MODULE = "leonardo_module_sentry.urls"
+HANDLER_500 = "leonardo_module_sentry.views.error_handler"
 
 LOGGING = {
     'version': 1,
