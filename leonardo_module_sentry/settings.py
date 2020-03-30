@@ -1,42 +1,12 @@
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
-RAVEN_CONFIG = {
-    'dsn': 'http://public:secret@example.com/1',
-}
+try:
+    from local_settings import SENTRY_DSN
+except ImportError:
+    SENTRY_DSN = 'http://public:secret@example.com/1'
 
-HANDLER_500 = "leonardo_module_sentry.views.error_handler"
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'root': {
-        'level': 'WARNING',
-        'handlers': ['sentry'],
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'sentry': {
-            'level': 'ERROR',
-            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
-        },
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['file', ],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
+sentry_sdk.init(
+    dsn=SENTRY_DSN,
+    integrations=[DjangoIntegration()]
+)

@@ -29,14 +29,8 @@ Add ``leonardo_module_sentry`` to APPS list, in the ``local_settings.py``::
     	...
     ]
 
-Load new template to db
 
-.. code-block:: bash
+Add ``SENTRY_DSN`` into your ``local_settings.py``::
 
-	python manage.py sync_common
+SENTRY_DSN = 'http://public:secret@example.com/1'
 
-Add ``RAVEN_CONFIG`` into your ``settings.py``::
-
-    RAVEN_CONFIG = {
-        'dsn': 'http://public:secret@example.com/1',
-    }
